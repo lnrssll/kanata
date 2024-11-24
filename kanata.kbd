@@ -1,0 +1,134 @@
+(defcfg
+	process-unmapped-keys yes
+)
+
+(defsrc
+	esc
+	w e
+	i o
+	caps a s d f g h j k l ; '
+	x c v
+	lalt spc
+	mlft
+)
+
+#|
+	blank template for mapped keys:
+	_
+	_ _
+	_ _
+	_ _ _ _ _ _ _ _ _ _ _ _
+	_ _ _
+	_ _
+	_
+|#
+
+(deflayer base
+	lrld
+	_ _
+	_ _
+	esc @a-met @s-alt @d-ctl @lindex _ _ @rindex @k-ctl @l-alt @scln-met _
+	@x-cut @c-cpy @v-pst
+	@numrow @spc-sft
+	@mlft-met
+)
+
+(deflayer lindex
+	_
+	[ ]
+	@ast _
+	_ grv @til-alt @sls-ctl _ _ @hat @lprn @rprn-ctl @bksl-alt @pip _
+	_ _ _
+	_ @usc
+	_
+)
+
+(deflayer rindex
+	_
+	tab _
+	@lcrl @rcrl
+	_ @bng @at-alt @she-ctl @dlr @mod _ _ @min-ctl @pls-alt eql _
+	_ _ _
+	_ @usc
+	_
+)
+
+(deflayer numrow
+	_
+	_ _
+	_ _
+	0 1 2 3 4 5 6 7 8 9 0 _
+	_ _ _
+	_ _
+	_
+)
+
+(defvar
+	tap-time 200
+	hold-time 200
+)
+
+(defalias
+	cut C-S-x
+	cpy C-S-c
+	pst C-S-v
+
+	dot .
+	sls /
+
+	til S-grv
+	bng S-1
+	at  S-2
+	she S-3
+	dlr S-4
+	mod S-5
+	hat S-6
+	and S-7
+	ast S-8
+	lprn S-9
+	rprn S-0
+	usc S-min
+	pls  S-eql
+
+	lcrl S-lbrc
+	rcrl S-rbrc
+	pip  S-bksl
+
+	col S-scln
+	dbl S-apo
+
+	lchv S-comm
+	rchv S-@dot
+	qst  S-@sls
+
+	a-met (tap-hold $tap-time $hold-time a lmet)
+	s-alt (tap-hold $tap-time $hold-time s lalt)
+	d-ctl (tap-hold $tap-time $hold-time d lctl)
+	lindex (tap-hold $tap-time $hold-time f (layer-while-held lindex))
+
+	rindex (tap-hold $tap-time $hold-time j (layer-while-held rindex))
+	k-ctl (tap-hold $tap-time $hold-time k rctl)
+	l-alt (tap-hold $tap-time $hold-time l ralt)
+	scln-met (tap-hold $tap-time $hold-time scln rmet)
+
+	x-cut (tap-hold $tap-time $hold-time x @cut)
+	c-cpy (tap-hold $tap-time $hold-time c @cpy)
+	v-pst (tap-hold $tap-time $hold-time v @pst)
+
+	spc-sft (tap-hold $tap-time $hold-time spc lsft)
+
+	mlft-met (tap-hold $tap-time $hold-time mlft lmet)
+	numrow (layer-while-held numrow)
+
+	til-alt (tap-hold $tap-time $hold-time @til lalt)
+	sls-ctl (tap-hold $tap-time $hold-time @sls lctl)
+
+	at-alt (tap-hold $tap-time $hold-time @at lalt)
+	she-ctl (tap-hold $tap-time $hold-time @she lctl)
+
+	min-ctl (tap-hold $tap-time $hold-time min rctl)
+	pls-alt (tap-hold $tap-time $hold-time @pls ralt)
+
+	rprn-ctl (tap-hold $tap-time $hold-time @rprn rctl)
+	bksl-alt (tap-hold $tap-time $hold-time bksl ralt)
+)
