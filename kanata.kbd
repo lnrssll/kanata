@@ -98,8 +98,8 @@
 	dbl S-apo
 
 	lchv S-comm
-	rchv S-@dot
-	qst  S-@sls
+	rchv S-.
+	qst  S-/
 
 	a-met (tap-hold $tap-time $hold-time a lmet)
 	s-alt (tap-hold $tap-time $hold-time s lalt)
