@@ -7,3 +7,5 @@
 
 ```
 KANATA CONFIG FOR LINUX
+
+Config options [here](https://jtroo.github.io/config.html).
