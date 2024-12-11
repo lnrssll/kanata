@@ -2,6 +2,12 @@
 
 Config options [here](https://jtroo.github.io/config.html).
 
+## Installation
+
+```bash
+cargo install kanata
+```
+
 ## Setup
 
 ### Linux
@@ -26,3 +32,19 @@ systemctl --user status kanata.service
 ```
 
 ### MacOS
+
+I haven't tried it yet, but I'm hoping it's possible to get the permissions working with a symlink in `/Applications` pointing to `$HOME/.cargo/bin/kanata`. Similarly, I'd like to get the service running in userspace.
+
+In the meantime, copy the `kanata` executable to the `/Applications` directory
+
+Go ahead an grab a mouse, so you can use MacOS like a dork. Give the "application" permissions by opening the `System Settings` GUI, clicking `Privacy & Security` then `Input Monitoring` until you see an option to enable `kanata`
+
+Next, I think you might need to copy the `sudoers-kanata-mac.txt` file to `/etc/sudoers.d/kanata`
+
+Now, run `generate-launchctl-service.sh` to produce the `launchctl` service file like so:
+
+```bash
+./generate-launchctl-service.sh | sudo tee /Library/LaunchDaemons/com.$USER.kanata.plist
+```
+
+You can run `sudo launchctl load /Library/LaunchDaemons/com.$USER.kanata.plist` to load the service and `tail -f ~/Library/Logs/kanata.err.log ~/Library/Logs/kanata.out.log` to check its status.

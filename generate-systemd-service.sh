@@ -10,7 +10,7 @@ fi
 # Find all linux*.kbd files in the current directory
 CONFIG_FILES=($(ls linux*.kbd 2>/dev/null))
 if [ ${#CONFIG_FILES[@]} -eq 0 ]; then
-  echo "Error: No linux-*.kbd files found in the current directory."
+  echo "Error: No linux*.kbd files found in the current directory."
   exit 1
 fi
 
