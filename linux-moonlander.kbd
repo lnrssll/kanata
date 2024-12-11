@@ -1,0 +1,58 @@
+(defcfg
+	process-unmapped-keys no
+)
+
+(defsrc
+	f3    f5    f6
+	f13   f16   f17   f18   f19   f20   f21   f22   f23   f24
+)
+
+#|
+	blank template for mapped keys:
+	_     _     _
+	_     _     _     _     _     _     _     _     _     _
+|#
+
+(deflayer base
+	lrnx  @cpy  @pst
+	=     -     [     ]     \     ;     '     ,     .     /
+)
+
+(defalias
+	cut C-S-x
+	cpy C-S-c
+	pst C-S-v
+
+	dot .
+	sls /
+
+	til S-grv
+	bng S-1
+	at  S-2
+	she S-3
+	dlr S-4
+	mod S-5
+	hat S-6
+	and S-7
+	ast S-8
+	lprn S-9
+	rprn S-0
+	usc S-min
+	pls  S-eql
+
+	lcrl S-lbrc
+	rcrl S-rbrc
+	pip  S-bksl
+
+	col S-scln
+	dbl S-apo
+
+	lchv S-comm
+	rchv S-.
+	qst  S-/
+)
+
+(defvar
+	tap-time 200
+	hold-time 200
+)

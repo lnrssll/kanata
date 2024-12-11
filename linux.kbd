@@ -3,7 +3,7 @@
 )
 
 (defsrc
-	esc
+	f3 f5 f6
 	w e
 	i o
 	caps a s d f g h j k l ; '
@@ -14,7 +14,7 @@
 
 #|
 	blank template for mapped keys:
-	_
+	_ _ _
 	_ _
 	_ _
 	_ _ _ _ _ _ _ _ _ _ _ _
@@ -24,7 +24,7 @@
 |#
 
 (deflayer base
-	lrld
+	lrnx _ _
 	_ _
 	_ _
 	esc @a-met @s-alt @d-ctl @lindex _ _ @rindex @k-ctl @l-alt @scln-met _
@@ -34,7 +34,7 @@
 )
 
 (deflayer lindex
-	_
+	_ _ _
 	[ ]
 	@ast _
 	_ grv @til-alt @sls-ctl _ _ @hat @lprn @rprn-ctl @bksl-alt @pip _
@@ -44,7 +44,7 @@
 )
 
 (deflayer rindex
-	_
+	_ _ _
 	tab _
 	@lcrl @rcrl
 	_ @bng @at-alt @she-ctl @dlr @mod _ _ @min-ctl @pls-alt eql _
@@ -54,18 +54,13 @@
 )
 
 (deflayer numrow
-	_
+	_ _ _
 	_ _
 	_ _
 	0 1 2 3 4 5 6 7 8 9 0 _
 	_ _ _
 	_ _
 	_
-)
-
-(defvar
-	tap-time 200
-	hold-time 200
 )
 
 (defalias
@@ -131,4 +126,9 @@
 
 	rprn-ctl (tap-hold $tap-time $hold-time @rprn rctl)
 	bksl-alt (tap-hold $tap-time $hold-time bksl ralt)
+)
+
+(defvar
+	tap-time 200
+	hold-time 200
 )
